@@ -1,32 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 17:03:15 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/14 11:26:08 by mqueiros         ###   ########.fr       */
+/*   Created: 2025/02/14 12:13:49 by mqueiros          #+#    #+#             */
+/*   Updated: 2025/02/14 12:13:49 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int ft_isalpha(int c)
-{
-    if ((c >= 'a' &&  c <= 'z') ||
-    (c >= 'A' &&  c <= 'Z'))
-        return (1);
-    return (0);
-}
-
-//----main
-/* 
-int main()
-{
-    char c = '@';
-    printf ("is alpha? %d\n", isalpha(c));
-    printf ("is ft? %d\n", ft_isalpha(c));
-    return (0);
-}
- */

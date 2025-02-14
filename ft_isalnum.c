@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 17:03:15 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/14 11:26:08 by mqueiros         ###   ########.fr       */
+/*   Created: 2025/02/14 11:57:49 by mqueiros          #+#    #+#             */
+/*   Updated: 2025/02/14 11:57:52 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalpha(int c)
+int ft_isalnum(int c)
 {
-    if ((c >= 'a' &&  c <= 'z') ||
-    (c >= 'A' &&  c <= 'Z'))
+    if (ft_isalpha(c) || ft_isdigit(c))
         return (1);
     return (0);
 }
@@ -24,9 +23,9 @@ int ft_isalpha(int c)
 /* 
 int main()
 {
-    char c = '@';
-    printf ("is alpha? %d\n", isalpha(c));
-    printf ("is ft? %d\n", ft_isalpha(c));
+    char c = '1';
+    printf ("is alnum? %d\n", isalnum(c));
+    printf ("is ft? %d\n", ft_isalnum(c));
     return (0);
 }
  */

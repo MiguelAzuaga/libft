@@ -1,17 +1,16 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
+
+
 NAME = libft.a
-SRCS = *.c
-BONUS_SCRS = 
+
+SRCS = $(wildcard ft_*.c)
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-				ar rc $(NAME) $(OBJS)
-			
-bonus:
-
+				ar rcs $(NAME) $(OBJS)
 
 clean:
 				rm -rf $(OBJS) $(BONUS_SCRS)

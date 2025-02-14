@@ -1,0 +1,11 @@
+# Ignore VS Code settings folder
+.vscode/
+
+# Ignore subject PDF
+Libft - Subject.en.pdf
+
+# Ignore "out" file
+out
+
+# Ignore files inside the test directory
+test/
