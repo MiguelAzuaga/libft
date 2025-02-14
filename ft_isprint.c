@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 11:57:39 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/14 12:02:21 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:14:54 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int ft_isprint(int c)
     return (0);
 }
 
-//----main
+//---main
 /* 
 int main()
 {

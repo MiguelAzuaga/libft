@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 12:01:54 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/14 12:12:17 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:15:11 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t ft_strlen(const char *s)
 	return(index);
 }
 
-//----main
+//---main
 /* 
 int main()
 {

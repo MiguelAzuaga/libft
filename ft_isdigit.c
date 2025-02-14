@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:03:15 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/14 12:01:25 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:15:05 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int ft_isdigit(int c)
     return (0);
 }
 
-//----main
+//---main
 /* 
 int main()
 {

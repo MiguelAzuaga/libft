@@ -2,7 +2,7 @@
 .vscode/
 
 # Ignore subject PDF
-Libft - Subject.en.pdf
+Libft.en.pdf
 
 # Ignore "out" file
 out

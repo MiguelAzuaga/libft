@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 11:57:24 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/14 11:58:54 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:15:03 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int ft_isascii(int c)
     return (0);
 }
 
-//----main
+//---main
 /* 
 int main()
 {

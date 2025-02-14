@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 17:03:15 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/14 17:15:00 by mqueiros         ###   ########.fr       */
+/*   Created: 2025/02/14 16:33:47 by mqueiros          #+#    #+#             */
+/*   Updated: 2025/02/14 17:43:47 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalpha(int c)
+int ft_toupper(int c)
 {
-    if ((c >= 'a' &&  c <= 'z') ||
-    (c >= 'A' &&  c <= 'Z'))
-        return (1);
-    return (0);
+	if(c >= 97 && c <= 122)
+		return(c -= 32);
+	return(c);
 }
 
 //---main
 /* 
 int main()
 {
-    char c = '@';
-    printf ("is alpha? %d\n", isalpha(c));
-    printf ("is ft? %d\n", ft_isalpha(c));
-    return (0);
+    char c = 'h';
+    printf("to upper: %c\n", toupper(c)); 
+    printf("ft: %c\n", ft_toupper(c));
+    return 0;
 }
  */
