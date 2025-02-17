@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 12:13:49 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/17 16:07:47 by mqueiros         ###   ########.fr       */
+/*   Created: 2025/02/17 14:41:18 by mqueiros          #+#    #+#             */
+/*   Updated: 2025/02/17 16:08:32 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int fill, size_t length)
-{
-	size_t			i;
-	unsigned char	*ptr;
-
-	i = 0;
-	ptr = (unsigned char *)s;
-	while (i < length)
-	{
-		*(ptr + i) = (unsigned char)fill;
-		i++;
-	}
-	return (s);
-}
-
-//--- MAIN ---//
-
-/* int ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t i;
 	const unsigned char *ptr1;
@@ -48,33 +31,38 @@ void	*ft_memset(void *s, int fill, size_t length)
 	return (0);
 }
 
-int main(int argc, char **argv)
+//--- MAIN ---//
+
+/* int main(int argc, char **argv)
 {
 	// Verify that there are 2 arguments
-	if (argc != 3)
+	if (argc != 4)
 	{
-		printf("Usage: %s <memory pointer> <memory pointer>\n", argv[0]);
+		printf("Usage: %s <memory pointer 1> <memory pointer 2> <n bytes>\n", argv[0]);
 		return (0);
 	}
 
-	char s1[10];
-	char s2[10];
-	char c1 = *argv[1];
-	char c2 = *argv[2];
-	int n = 2;				//////////----- CHANGE ----- //////////
+	const void *ptr1 = argv[1];
+	const void *ptr2 = argv[2];
+	size_t size = 0;
+	int i = 0;
 
-	// Test 1: Fill string with 'c1' using ft_memset
-	ft_memset(s1, c1, n);
-	s1[n] = '\0';
-	printf("ft: %s\n", s1);		// Expected: 'c1' n times
+	// Converts the 3rd argument to integer
+	while(argv[3][i] >= '0' && argv[3][i] <= '9')
+	{
+		size = size * 10 + (argv[3][i] - '0');
+		i++;
+	}
 
-	// Test 2: Compare with function memset
-	memset(s2, c2, n);
-	s2[n] = '\0';
-	printf("memset: %s\n", s2);	// Expected: 'c2' n times
+	// Test 1: Compare memory block 1 with memory block 2 using ft_memcmp
+	printf("ft: %d\n", ft_memcmp(m1, m2, size));	// Expected 0 or diff
+
+
+	// Test 2: Compare with function memcmp
+	printf("memcmp: %d\n", memcmp(m1, m2, size));	// Expected 0 or diff
 
 	// Test 3: Check if both match
-	if (ft_memcmp(s1, s2, n) == 0)
+	if (ft_memcmp(m1, m2, size) == memcmp(m1, m2, size))
 		printf("Test Passed ✅\n");
 	else
 		printf("Test Failed ❌\n");
