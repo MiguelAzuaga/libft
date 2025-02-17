@@ -6,26 +6,41 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 11:57:24 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/14 17:15:03 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:36:38 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if (c >= 0 && c <= 127)
-        return (1);
-    return (0);
+	return ((c >= 0 && c <= 127) * 1);
 }
 
-//---main
-/* 
-int main()
+//--- MAIN ---//
+
+/* int main(int argc, char **argv)
 {
-    char c = '1';
-    printf ("is ascii? %d\n", isascii(c));
-    printf ("is ft? %d\n", ft_isascii(c));
-    return (0);
-}
- */
+	// Verify that there is 1 argument
+	if (argc != 2)
+	{
+		printf("Plase insert 1 character\n");
+		return (0);
+	}
+
+	char c1 = *argv[1];
+
+	// Test 1 Check if 'c1' is an ascii character with ft_isascii
+	printf ("ft: %d\n", ft_isascii(c1));	// Expected 0 or 2048
+
+	// Test 2 Compare with function isascii
+	printf ("isascii: %d\n", isascii(c1));	// Expected 0 or 2048
+
+	// Test 3 Check if both match
+	if(ft_isascii(c1) == isascii(c1))
+		printf("Test Passed ✅\n");
+	else
+		printf("Test Failed ❌\n");
+
+	return (0);
+} */

@@ -20,8 +20,8 @@ fclean: clean
 
 re: fclean all
 
-so:
-				$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(BONUS_SCRS)
-				$(CC) -nostartfiles -shared -o libft.so $(OBJS) $(BONUS_SCRS)
-
-.SILENT:
+#so:
+#				$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(BONUS_SCRS)
+#				$(CC) -nostartfiles -shared -o libft.so $(OBJS) $(BONUS_SCRS)
+#
+#.SILENT:

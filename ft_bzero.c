@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 12:13:49 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/17 12:50:06 by mqueiros         ###   ########.fr       */
+/*   Created: 2025/02/17 12:45:37 by mqueiros          #+#    #+#             */
+/*   Updated: 2025/02/17 13:13:39 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int fill, size_t length)
+void	*ft_bzero(void *s, size_t length)
 {
 	size_t			i;
 	unsigned char	*ptr;
@@ -21,7 +21,7 @@ void	*ft_memset(void *s, int fill, size_t length)
 	ptr = (unsigned char *)s;
 	while (i < length)
 	{
-		*(ptr + i) = (unsigned char)fill;
+		*(ptr + i) = '\0';
 		i++;
 	}
 	return (s);
@@ -34,27 +34,36 @@ void	*ft_memset(void *s, int fill, size_t length)
 	// Verify that there are 2 arguments
 	if (argc != 3)
 	{
-		printf("Plase insert 2 characters\n");
+		printf("Plase insert 1 string and 1 size\n");
 		return (0);
 	}
 
-	char s1[10];
-	char s2[10];
-	char c1 = *argv[1];
-	char c2 = *argv[2];
+	char *s1 = argv[1];
+	char *s2 = argv[1];
+	int	size = 0;
+	int i = 0;
 
-	// Test 1: Fill string with 'c1' using ft_memset
-	ft_memset(s1, c1, 5);
-	s1[5] = '\0';
-	printf("ft: %s\n", s1);		// Expected: "c1c1c1c1c1"
+	// Get the number of characters to convert
+	while(argv[2][i] >= '0' && argv[2][i] <= '9')
+	{
+		size = size * 10 + (argv[2][i] - '0');
+		i++;
+	}
 
-	// Test 2: Compare with function memset
-	memset(s2, c2, 5);
-	s2[5] = '\0';
-	printf("memset: %s\n", s2);	// Expected: "c2c2c2c2c2"
+	// Test 1: Fill string with '\0' using ft_bzero
+	printf("before ft: %s\n", s1);		// Expected: '\0'
+	ft_bzero(s1, size);
+	s1[size] = '\0';
+	printf("ft: %s\n", s1);		// Expected: '\0'
+
+	// Test 2: Compare with function bzero
+	printf("before bzero: %s\n", s1);		// Expected: '\0'
+	bzero(s2, size);
+	s2[size] = '\0';
+	printf("bzero: %s\n", s2);	// Expected: '\0'
 
 	// Test 3: Check if both match
-	if (memcmp(s1, s2, 5) == 0)  /////////////// CHANGE
+	if (memcmp(s1, s2, size) == 0)  /////////////// CHANGE
 		printf("Test Passed ✅\n");
 	else
 		printf("Test Failed ❌\n");

@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:29:04 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/14 17:46:04 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:32:10 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ int ft_isprint(int c);
 size_t ft_strlen(const char *s);
 int ft_toupper(int c);
 int ft_tolower(int c);
+
+void	*ft_memset(void *s, int fill, size_t length);
 
 #endif
