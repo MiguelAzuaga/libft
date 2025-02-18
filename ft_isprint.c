@@ -6,13 +6,13 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 11:57:39 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/17 12:37:56 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:11:29 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
 	return ((c >= 32 && c <= 126) * 16384);
 }
@@ -24,17 +24,17 @@ int ft_isprint(int c)
 	// Verify that there is 1 argument
 	if (argc != 2)
 	{
-		printf("Plase insert 1 character\n");
+		printf("Usage %s <character>\n", argv[0]);
 		return (0);
 	}
 
 	char c1 = *argv[1];
 
 	// Test 1 Check if 'c1' is a printable character with ft_isprint
-	printf ("ft: %d\n", ft_isprint(c1));	// Expected 0 or 2048
+	printf ("ft: %d\n", ft_isprint(c1));	// Expected 0 or 16384
 
 	// Test 2 Compare with function isprint
-	printf ("isprint: %d\n", isprint(c1));	// Expected 0 or 2048
+	printf ("isprint: %d\n", isprint(c1));	// Expected 0 or 16384
 
 	// Test 3 Check if both match
 	if(ft_isprint(c1) == isprint(c1))

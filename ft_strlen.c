@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 12:01:54 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/17 12:43:39 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:11:52 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *s)
 	int	index;
 
 	index = 0;
-	while(s[index] != '\0')
+	while (s[index] != '\0')
 		index++;
 	return (index);
 }
@@ -29,7 +29,7 @@ size_t	ft_strlen(const char *s)
 	// Verify that there is 1 argument
 	if (argc != 2)
 	{
-		printf("Plase insert 1 string\n");
+		printf("Usage %s <string>\n", argv[0]);
 		return (0);
 	}
 
@@ -42,7 +42,7 @@ size_t	ft_strlen(const char *s)
 	printf ("strlen: %lu\n", strlen(s1));	// Expected size of string
 
 	// Test 3 Check if both match
-	if(ft_strlen(s1) == strlen(s1))
+	if (ft_strlen(s1) == strlen(s1))
 		printf("Test Passed ✅\n");
 	else
 		printf("Test Failed ❌\n");

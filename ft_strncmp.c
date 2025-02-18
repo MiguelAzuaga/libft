@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 14:41:18 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/18 20:05:53 by mqueiros         ###   ########.fr       */
+/*   Created: 2025/02/18 13:53:49 by mqueiros          #+#    #+#             */
+/*   Updated: 2025/02/18 20:11:41 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t				i;
-	const unsigned char	*ptr1;
-	const unsigned char	*ptr2;
+	size_t	i;
 
-	ptr1 = (const unsigned char *)s1;
-	ptr2 = (const unsigned char *)s2;
 	i = 0;
-	while (i < n)
-	{
-		if (ptr1[i] != ptr2[i])
-			return (ptr1[i] - ptr2[i]);
+	while ((s1[i] || s2[i]) && i < n && s1[i] == s2[i])
 		i++;
-	}
-	return (0);
+	return (s1[i] - s2[i]);
 }
 
 //--- MAIN ---//
@@ -37,13 +29,12 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	// Verify that there are 2 arguments
 	if (argc != 4)
 	{
-		printf("Usage: %s <memory adress 1> <memory adress 2> <n bytes>\n"\
-			, argv[0]);
+		printf("Usage: %s <string 1> <string 2> <n bytes>\n", argv[0]);
 		return (0);
 	}
 
-	const void *ptr1 = argv[1];
-	const void *ptr2 = argv[2];
+	const void *s1 = argv[1];
+	const void *s2 = argv[2];
 	size_t size = 0;
 	size_t i = 0;
 
@@ -54,15 +45,15 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		i++;
 	}
 
-	// Test 1: Compare memory block 1 with memory block 2 using ft_memcmp
-	printf("ft: %d\n", ft_memcmp(ptr1, ptr2, size));	// Expected 0 or diff
+	// Test 1: Compare string 1 with string 2 for n characters using ft_strncmp
+	printf("ft: %d\n", ft_strncmp(s1, s2, size));	// Expected 0 or diff
 
 
-	// Test 2: Compare with function memcmp
-	printf("memcmp: %d\n", memcmp(ptr1, ptr2, size));	// Expected 0 or diff
+	// Test 2: Compare with function strncmp
+	printf("strncmp: %d\n", strncmp(s1, s2, size));	// Expected 0 or diff
 
 	// Test 3: Check if both match
-	if (ft_memcmp(ptr1, ptr2, size) == memcmp(ptr1, ptr2, size))
+	if (ft_strncmp(s1, s2, size) == strncmp(s1, s2, size))
 		printf("Test Passed ✅\n");
 	else
 		printf("Test Failed ❌\n");

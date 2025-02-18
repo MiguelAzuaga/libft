@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 11:57:49 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/17 12:34:54 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:22:41 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 /* int ft_isalpha(int c)
 {
-	return (((c >= 'a' &&  c <= 'z') ||
-			(c >= 'A' &&  c <= 'Z')) * 1024);
+	return (((c >= 'a' && c <= 'z') ||
+			(c >= 'A' && c <= 'Z')) * 1024);
 }
 
 int ft_isdigit(int c)
 {
-	return ((c >= '0' &&  c <= '9') * 2048);
+	return ((c >= '0' && c <= '9') * 2048);
 } */
 
 int	ft_isalnum(int c)
@@ -35,7 +35,7 @@ int	ft_isalnum(int c)
 	// Verify that there is 1 argument
 	if (argc != 2)
 	{
-		printf("Plase insert 1 character\n");
+		printf("Usage %s <character>\n", argv[0]);
 		return (0);
 	}
 
@@ -48,7 +48,7 @@ int	ft_isalnum(int c)
 	printf ("isalnum: %d\n", isalnum(c1));	// Expected 0 or 8
 
 	// Test 3 Check if both match
-	if(ft_isalnum(c1) == isalnum(c1))
+	if (ft_isalnum(c1) == isalnum(c1))
 		printf("Test Passed ✅\n");
 	else
 		printf("Test Failed ❌\n");

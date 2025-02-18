@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:03:15 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/17 12:35:10 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:11:39 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 int	ft_isalpha(int c)
 {
-	return (((c >= 'a' &&  c <= 'z') ||
-			(c >= 'A' &&  c <= 'Z')) * 1024);
+	return (((c >= 'a' && c <= 'z')
+			|| (c >= 'A' && c <= 'Z')) * 1024);
 }
 
 //--- MAIN ---//
 
-/* int main(int argc, char **argv)
+/* int	main(int argc, char **argv)
 {
 	// Verify that there is 1 argument
 	if (argc != 2)
 	{
-		printf("Plase insert 1 character\n");
+		printf("Usage %s <character>\n", argv[0]);
 		return (0);
 	}
 
@@ -38,7 +38,7 @@ int	ft_isalpha(int c)
 	printf ("isalpha: %d\n", isalpha(c1));	// Expected 0 or 1024
 
 	// Test 3 Check if both match
-	if(ft_isalpha(c1) == isalpha(c1))
+	if (ft_isalpha(c1) == isalpha(c1))
 		printf("Test Passed ✅\n");
 	else
 		printf("Test Failed ❌\n");
