@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 12:13:49 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/18 19:56:43 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/02/21 07:03:53 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	*ft_memset(void *s, int fill, size_t length)
 	const unsigned char	*ptr1;
 	const unsigned char	*ptr2;
 
+	i = 0;
 	ptr1 = (const unsigned char *)s1;
 	ptr2 = (const unsigned char *)s2;
-	i = 0;
 	while (i < size)
 	{
 		if (ptr1[i] != ptr2[i])

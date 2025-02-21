@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:29:04 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/02/18 20:16:30 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/02/21 18:04:09 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ int		ft_tolower(int c);
 void	*ft_memset(void *s, int fill, size_t length);
 void	*ft_bzero(void *s, size_t length);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memmove(void *dest, const void *src, size_t n);
 
 #endif
