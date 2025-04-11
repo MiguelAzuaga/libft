@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 10:16:16 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/11 14:41:55 by mqueiros         ###   ########.fr       */
+/*   Created: 2025/04/11 16:07:09 by mqueiros          #+#    #+#             */
+/*   Updated: 2025/04/11 16:32:06 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	size_t	i;
-	size_t	l_len;
-
-	if (!little || little[0] == '\0')
-		return ((char *)big);
-	i = 0;
-	l_len = ft_strlen(little);
-	while (i <= len - l_len && big[i])
+	if (!s || !f)
+		return (NULL);
+	while (s[i])
 	{
-		if (ft_strncmp(&big[i], little, l_len) == 0)
-			return ((char *)&big[i]);
+		f(i, &s[i]);
 		i++;
 	}
-	return (NULL);
+	return ;
 }

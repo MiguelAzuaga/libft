@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 10:16:16 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/11 14:41:55 by mqueiros         ###   ########.fr       */
+/*   Created: 2025/04/11 17:21:07 by mqueiros          #+#    #+#             */
+/*   Updated: 2025/04/11 17:30:46 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
-	size_t	l_len;
-
-	if (!little || little[0] == '\0')
-		return ((char *)big);
-	i = 0;
-	l_len = ft_strlen(little);
-	while (i <= len - l_len && big[i])
-	{
-		if (ft_strncmp(&big[i], little, l_len) == 0)
-			return ((char *)&big[i]);
-		i++;
-	}
-	return (NULL);
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen(s));
+	
 }

@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 16:38:29 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/09 17:29:51 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/04/11 14:38:39 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,4 @@ char	*ft_strchr(const char *s, int c)
 		return (NULL);
 	return ((char *)&s[i]);
 }
+
