@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 12:08:34 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/14 16:04:36 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:30:34 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,23 +65,19 @@ static char	**ft_fill_split(const char *s, char c, size_t count, char **split)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t word_count;
+	size_t	word_count;
 	char	**split;
 
 	if (!s)
 		return (NULL);
 	word_count = ft_count_words(s, c);
-	
 	split = malloc((word_count + 1) * sizeof(char *));
 	if (!split)
 		return (NULL);
-
 	return (ft_fill_split(s, c, word_count, split));
 }
 
-
-
-
+/*
 #include <stdio.h>
 
 void	print_split(char **split)
@@ -129,3 +125,4 @@ int	main(void)
 
 	return (0);
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 12:19:39 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/11 14:08:59 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:31:06 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,28 @@
 static char	*ft_putnbr(char *s, int n, int size)
 {
 	int	i;
-	
+
 	s[size] = '\0';
 	if (n == -2147483648)
 	{
 		ft_strlcpy(s, "-2147483648", 12);
 		return (s);
 	}
+	i = size - 1;
 	if (n < 0)
 	{
 		s[0] = '-';
 		n = -n;
 	}
-	i = size - 1;	
+	if (n == 0)
+		s[0] = '0';
 	while (n > 0)
 	{
-		s[i] = n % 10;
+		s[i] = n % 10 + '0';
 		n /= 10;
 		i--;
 	}
 	return (s);
-	
 }
 
 char	*ft_itoa(int n)
@@ -56,7 +57,6 @@ char	*ft_itoa(int n)
 	dst = malloc ((n_len + 1) * sizeof(char));
 	if (!dst)
 		return (NULL);
-	
 	return (ft_putnbr(dst, n, n_len));
 }
 /* #include <stdio.h>

@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:49:42 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/11 11:20:36 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:29:16 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	s1_len;
 	size_t	s2_len;
 	char	*dst;
-	
+
 	i = 0;
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);

@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 16:02:17 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/10 17:02:49 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:29:04 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	char	*d;
 	size_t	s_len;
-	
+
 	if (!s)
 		return (NULL);
 	s_len = ft_strlen(s);
@@ -28,7 +28,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	d = malloc ((len + 1) * sizeof(char));
 	if (!d)
 		return (NULL);
-	i = 0;	
+	i = 0;
 	while (i < len)
 	{
 		d[i] = s[start + i];

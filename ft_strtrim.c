@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 11:21:11 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/14 09:49:15 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:29:26 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
-	
+
 	if (!s1 || !set)
 		return (NULL);
 	i = 0;
