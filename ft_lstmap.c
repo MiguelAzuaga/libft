@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 16:38:29 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/15 17:16:32 by mqueiros         ###   ########.fr       */
+/*   Created: 2025/04/15 17:36:16 by mqueiros          #+#    #+#             */
+/*   Updated: 2025/04/15 17:45:14 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	i;
-
-	i = 0;
-	while (s[i] && s[i] != (char)c)
-		i++;
-	if (s[i] != (char)c)
-		return (NULL);
-	return ((char *)&s[i]);
+	t_list	tmp;
+	
+	tmp = *lst;
+	
 }
+
