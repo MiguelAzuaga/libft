@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 16:07:09 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/14 17:31:45 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/04/15 14:30:59 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 
 	if (!s || !f)
 		return ;
+	i = 0;
 	while (s[i])
 	{
 		f(i, &s[i]);

@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 12:08:34 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/14 17:30:34 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/04/15 09:49:00 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,23 @@ static size_t	ft_count_words(const char *s, char c)
 static char	**ft_fill_split(const char *s, char c, size_t count, char **split)
 {
 	size_t	i;
-	size_t	start;
+	size_t	word_size;
 
 	i = 0;
 	while (*s && i < count)
 	{
 		while (*s == c)
 			s++;
-		start = 0;
-		while (s[start] && s[start] != c)
-			start++;
-		split[i] = ft_substr(s, 0, start);
+		word_size = 0;
+		while (s[word_size] && s[word_size] != c)
+			word_size++;
+		split[i] = ft_substr(s, 0, word_size);
 		if (!split[i])
 		{
 			ft_free_split(split, i);
 			return (NULL);
 		}
-		s += start;
+		s += word_size;
 		i++;
 	}
 	split[i] = NULL;
@@ -101,27 +101,27 @@ int	main(void)
 	char *str3 = "";
 	char *str4 = "    ";
 	char *str5 = "Hello42World";
-	char **res;
+	char **ans;
 
 	printf("Test 1:\n");
-	res = ft_split(str1, ' ');
-	print_split(res);
+	ans = ft_split(str1, ' ');
+	print_split(ans);
 
 	printf("\nTest 2:\n");
-	res = ft_split(str2, ' ');
-	print_split(res);
+	ans = ft_split(str2, ' ');
+	print_split(ans);
 
 	printf("\nTest 3:\n");
-	res = ft_split(str3, ' ');
-	print_split(res);
+	ans = ft_split(str3, ' ');
+	print_split(ans);
 
 	printf("\nTest 4:\n");
-	res = ft_split(str4, ' ');
-	print_split(res);
+	ans = ft_split(str4, ' ');
+	print_split(ans);
 
 	printf("\nTest 5:\n");
-	res = ft_split(str5, '4');
-	print_split(res);
+	ans = ft_split(str5, '4');
+	print_split(ans);
 
 	return (0);
 }
