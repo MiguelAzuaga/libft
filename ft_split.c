@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 12:08:34 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/15 09:49:00 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/04/15 15:04:49 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,11 @@ static size_t	ft_count_words(const char *s, char c)
 	size_t	i;
 	size_t	count;
 
-	i = 1;
+	i = 0;
 	count = 0;
-	if (s[0] != c)
-		count++;
 	while (s[i])
 	{
-		if (s[i] != c && s[i - 1] == c)
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 			count++;
 		i++;
 	}
@@ -76,8 +74,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (ft_fill_split(s, c, word_count, split));
 }
-
-/*
+/* 
 #include <stdio.h>
 
 void	print_split(char **split)
@@ -125,4 +122,4 @@ int	main(void)
 
 	return (0);
 }
-*/
+ */
