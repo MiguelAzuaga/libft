@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 09:29:12 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/15 14:28:03 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/04/16 11:19:53 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
-/* int main ()
-{
-	ft_strncmp("HELLOOO", "HELLQQQ", 4);
-	return 0;
-}
- */

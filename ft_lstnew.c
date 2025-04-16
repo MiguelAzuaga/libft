@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 10:15:04 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/15 15:46:03 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/04/16 11:19:14 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,3 @@ t_list	*ft_lstnew(void *content)
 	ans->next = NULL;
 	return (ans);
 }
-/* 
-#include <stdio.h>
-int	main(void)
-{
-	t_list	**my_list;
-	t_list	*node1;
-
-	my_list = &node1;
-	int		num = 42;
-	node1 = ft_lstnew(&num);
-	printf("%d\n", *(int *)node1->content);
-}
- */

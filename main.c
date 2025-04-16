@@ -1,215 +1,168 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 15:14:58 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/11 11:58:58 by mqueiros         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include <string.h>
-#include <stdio.h>
-#include <ctype.h>
-#include <unistd.h>
 #include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+/* --- Function Callbacks for ft_strmapi, ft_striteri, ft_lstmap, ft_lstiter --- */
+
+char	map_increment(unsigned int i, char c)
+{
+	(void)i;
+	return (c + 1);
+}
+
+void	iteri_increment(unsigned int i, char *c)
+{
+	*c += i;
+}
+
+void	*lst_dup_content(void *content)
+{
+	return (ft_strdup((char *)content));
+}
+
+void	lst_print_content(void *content)
+{
+	printf(" - %s\n", (char *)content);
+}
+
+/* --- Tests --- */
+
+void	test_char_functions(void)
+{
+	printf("--- Character Checks ---\n");
+	printf("ft_isalpha('A') = %d\n", ft_isalpha('A'));
+	printf("ft_isdigit('9') = %d\n", ft_isdigit('9'));
+	printf("ft_isalnum('z') = %d\n", ft_isalnum('z'));
+	printf("ft_isascii(128) = %d\n", ft_isascii(128));
+	printf("ft_isprint(' ') = %d\n", ft_isprint(' '));
+	printf("ft_toupper('a') = %c\n", ft_toupper('a'));
+	printf("ft_tolower('Z') = %c\n\n", ft_tolower('Z'));
+}
+
+void	test_string_functions(void)
+{
+	char str[] = "Hello, world!";
+	char buf[50];
+
+	printf("--- String Functions ---\n");
+	printf("ft_strlen(\"Hello\") = %zu\n", ft_strlen("Hello"));
+
+	ft_memset(buf, 'A', 5);
+	buf[5] = '\0';
+	printf("ft_memset: %s\n", buf);
+
+	char bzero_buf[5] = "ABCD";
+	ft_bzero(bzero_buf, 2);
+	printf("ft_bzero: %s\n", bzero_buf);
+
+	strcpy(buf, "123456789");
+	ft_memcpy(buf + 2, "abc", 3);
+	printf("ft_memcpy: %s\n", buf);
+
+	strcpy(buf, "abcdef");
+	ft_memmove(buf + 2, buf, 4);
+	printf("ft_memmove: %s\n", buf);
+
+	char src[] = "Copy this!";
+	char dest[20];
+	ft_strlcpy(dest, src, 20);
+	printf("ft_strlcpy: %s\n", dest);
+
+	char cat1[30] = "Hello ";
+	ft_strlcat(cat1, "World!", 30);
+	printf("ft_strlcat: %s\n", cat1);
+
+	printf("ft_strchr: %s\n", ft_strchr("Hello", 'l'));
+	printf("ft_strrchr: %s\n", ft_strrchr("Hello", 'l'));
+	printf("ft_strncmp(\"abc\", \"abd\", 2): %d\n", ft_strncmp("abc", "abd", 2));
+	printf("ft_memchr: %s\n", (char *)ft_memchr("abcdef", 'd', 6));
+	printf("ft_memcmp(\"abc\", \"abc\"): %d\n", ft_memcmp("abc", "abc", 3));
+	printf("ft_strnstr: %s\n\n", ft_strnstr("Hello World", "World", 11));
+}
+
+void	test_conversion_allocation(void)
+{
+	printf("--- Conversions & Memory ---\n");
+	printf("ft_atoi(\"42\") = %d\n", ft_atoi("42"));
+
+	char *s = ft_strdup("Libft");
+	printf("ft_strdup: %s\n", s);
+	free(s);
+
+	s = ft_substr("libft tester", 6, 6);
+	printf("ft_substr: %s\n", s);
+	free(s);
+
+	s = ft_strjoin("Hello, ", "World!");
+	printf("ft_strjoin: %s\n", s);
+	free(s);
+
+	s = ft_strtrim("  xxx trimmed xx ", " x");
+	printf("ft_strtrim: '%s'\n", s);
+	free(s);
+
+	char **split = ft_split("one,two,three", ',');
+	printf("ft_split:\n");
+	for (int i = 0; split[i]; i++)
+	{
+		printf("  - %s\n", split[i]);
+		free(split[i]);
+	}
+	free(split);
+
+	s = ft_itoa(-2147483648);
+	printf("ft_itoa: %s\n", s);
+	free(s);
+
+	s = ft_strmapi("abc", map_increment);
+	printf("ft_strmapi: %s\n", s);
+	free(s);
+
+	char str[] = "ABC";
+	ft_striteri(str, iteri_increment);
+	printf("ft_striteri: %s\n", str);
+
+	char c = 'X';
+	printf("ft_putchar_fd: ");
+	ft_putchar_fd(c, 1);
+	printf("\nft_putstr_fd: ");
+	ft_putstr_fd("Hello", 1);
+	printf("\nft_putendl_fd: ");
+	ft_putendl_fd("Hello", 1);
+	printf("ft_putnbr_fd: ");
+	ft_putnbr_fd(-1234, 1);
+	printf("\n\n");
+}
+
+void	test_bonus_linked_list(void)
+{
+	printf("--- Linked List Bonus ---\n");
+	t_list *node1 = ft_lstnew("One");
+	t_list *node2 = ft_lstnew("Two");
+	t_list *node3 = ft_lstnew("Three");
+
+	ft_lstadd_front(&node1, node2);
+	ft_lstadd_back(&node1, node3);
+
+	printf("List size: %d\n", ft_lstsize(node1));
+	printf("Last element: %s\n", (char *)ft_lstlast(node1)->content);
+
+	t_list *copy = ft_lstmap(node1, lst_dup_content, free);
+	printf("Mapped list:\n");
+	ft_lstiter(copy, lst_print_content);
+
+	ft_lstclear(&copy, free);
+	ft_lstclear(&node1, NULL); // Original content wasn't dynamically allocated
+	printf("\n");
+}
 
 int	main(void)
 {
-	char				c1;
-	char				c2;
-	const char			src1[15] = "Hello 42";
-	char				dst1[15];
-	const char			src2[15] = "World!";
-	char				dst2[15];
-	char				*ptr1;
-	char				*ptr2;
-	long unsigned int	i;
-	int					offset;
-	
-	c1 = '!';
-	c2 = 'I';
-	offset = 0;
-	
-	printf("isalpha:\n");
-	printf("char is:\"%c\", expected output is:\"%d\"\n", c1, isalpha(c1));
-	printf("char is:\"%c\", ft output is:\"%d\"\n\n", c1, ft_isalpha(c1));
-	
-	
-	printf("isdigit:\n");
-	printf("char is:\"%c\", expected output is:\"%d\"\n", c1, isdigit(c1));
-	printf("char is:\"%c\", ft output is:\"%d\"\n\n", c1, ft_isdigit(c1));
-	
-
-	printf("isalnum:\n");
-	printf("char is:\"%c\", expected output is:\"%d\"\n", c1, isalnum(c1));
-	printf("char is:\"%c\", ft output is:\"%d\"\n\n", c1, ft_isalnum(c1));
-	
-
-	printf("isascii:\n");
-	printf("char is:\"%c\", expected output is:\"%d\"\n", c1, isascii(c1));
-	printf("char is:\"%c\", ft output is:\"%d\"\n\n", c1, ft_isascii(c1));
-	
-
-	printf("isprint:\n");
-	printf("char is:\"%c\", expected output is:\"%d\"\n", c1, isprint(c1));
-	printf("char is:\"%c\", ft output is:\"%d\"\n\n", c1, ft_isprint(c1));
-	
-
-	printf("strlen:\n");
-	printf("expected output is:\"%ld\"\n", strlen(dst1));
-	printf("ft output is:\"%ld\"\n\n", ft_strlen(dst1));
-
-
-	printf("memset:\n");
-	i = -1;
-	strcpy(dst1, src1);
-	memset(dst1, c1, sizeof(dst1));
-	while (++i < sizeof(dst1))
-		printf("char is:\"%c\", expected output at pos(%ld) is:\"%c\"\n", c1, i, dst1[i]);
-
-	i = -1;
-	strcpy(dst1, src1);
-	ft_memset(dst1, c1, sizeof(dst1));
-	while (++i < sizeof(dst1))	
-		printf("char is:\"%c\", ft output at pos(%ld) is:\"%c\"\n", c1, i, dst1[i]);
-	printf("\n");
-
-
-	printf("bzero:\n");
-	strcpy(dst1, src1);
-	bzero(dst1, sizeof(dst1));
-	printf("expected output is:\"%s\"\n", dst1);
-	
-	strcpy(dst1, src1);
-	ft_bzero(dst1, sizeof(dst1));
-	printf("ft output is:\"%s\"\n", dst1);
-	printf("\n");
-
-
-	printf("memcpy:\n");
-	strcpy(dst1, src1);
-	memcpy(dst1 + offset, dst1, sizeof(dst1));
-	printf("expected output is:\"%s\"\n", dst1);
-	
-	strcpy(dst1, src1);
-	ft_memcpy(dst1 + offset, dst1, sizeof(dst1));
-	printf("ft output is:\"%s\"\n", dst1);
-	printf("\n");
-
-
-	printf("memmove:\n");
-	strcpy(dst1, src1);
-	memmove(dst1 + offset, dst1, sizeof(dst1));
-	printf("expected output is:\"%s\"\n", dst1);
-	
-	strcpy(dst1, src1);
-	ft_memmove(dst1 + offset, dst1, sizeof(dst1));
-	printf("ft output is:\"%s\"\n", dst1);
-	printf("\n");
-
-
-	printf("strlcpy:\n");
-	strcpy(dst1, src1);
-	strlcpy(dst1, src1, sizeof(src1));
-	printf("expected output is:\"%s\"\n", dst1);
-	
-	strcpy(dst1, src1);
-	ft_strlcpy(dst1, src1, sizeof(src1));
-	printf("ft output is:\"%s\"\n", dst1);
-	printf("\n");
-
-
-	printf("strlcat:\n");
-	strcpy(dst1, src1);
-	strcpy(dst2, src2);
-	strlcat(dst2, dst1, sizeof(src1));
-	printf("expected output is:\"%s\"\n", dst2);
-	
-	strcpy(dst1, src1);
-	strcpy(dst2, src2);
-	ft_strlcat(dst2, dst1, sizeof(src1));
-	printf("ft output is:\"%s\"\n", dst2);
-	printf("\n");
-	
-	
-	printf("toupper:\n");
-	printf("char is:\"%c\", expected output is:\"%c\"\n", c1, toupper(c1));
-	printf("char is:\"%c\", ft output is:\"%c\"\n\n", c1, ft_toupper(c1));
-	
-	
-	printf("tolower:\n");
-	printf("char is:\"%c\", expected output is:\"%c\"\n", c2, tolower(c2));
-	printf("char is:\"%c\", ft output is:\"%c\"\n\n", c2, ft_tolower(c2));
-
-
-	printf("strchr:\n");
-	strcpy(dst1, src1);
-	printf("char is:\"%c\", str is:\"%s\", expected output is:\"%s\"\n", c1, dst1, strchr(dst1, c1));
-	printf("char is:\"%c\", str is:\"%s\", ft output is:\"%s\"\n", c1, dst1, ft_strchr(dst1, c1));
-	printf("\n");
-
-
-	printf("strrchr:\n");
-	strcpy(dst1, src1);
-	printf("char is:\"%c\", str is:\"%s\", expected output is:\"%s\"\n", c1, dst1, strrchr(dst1, c1));
-	printf("char is:\"%c\", str is:\"%s\", ft output is:\"%s\"\n", c1, dst1, ft_strrchr(dst1, c1));
-	printf("\n");
-
-
-	printf("strncmp:\n");
-	strcpy(dst1, src1);
-	strcpy(dst2, src2);
-	printf("1st str is:\"%s\", 2nd str is:\"%s\", expected output is:\"%d\"\n", dst1, dst2, strncmp(dst1, dst2, 4));
-	printf("1st str is:\"%s\", 2nd str is:\"%s\", ft output is:\"%d\"\n", dst1, dst2, ft_strncmp(dst1, dst2, 4));
-	printf("\n");
-
-
-	printf("memchr:\n");
-	strcpy(dst1, src1);
-	printf("char is:\"%c\", str is:\"%s\", expected output is:\"%p\"\n", c1, dst1, memchr(dst1, c1, 9));
-	printf("char is:\"%c\", str is:\"%s\", ft output is:\"%p\"\n", c1, dst1, ft_memchr(dst1, c1,	9));
-	printf("\n");
-
-
-	printf("memcmp:\n");
-	strcpy(dst1, src1);
-	strcpy(dst2, src2);
-	printf("1st str is:\"%s\", 2nd str is:\"%s\", expected output is:\"%d\"\n", dst1, dst2, memcmp(dst1, dst2, 4));
-	printf("1st str is:\"%s\", 2nd str is:\"%s\", ft output is:\"%d\"\n", dst1, dst2, ft_memcmp(dst1, dst2, 4));
-	printf("\n");
-
-
-	printf("strnstr:\n");
-	strcpy(dst1, src1);
-	strcpy(dst2, src2);
-	//printf("1st str is:\"%s\", 2nd str is:\"%s\", expected output is:\"%s\"\n", dst1, dst2, strnstr(dst1, dst2, 4));
-	printf("1st str is:\"%s\", 2nd str is:\"%s\", ft output is:\"%s\"\n", dst1, dst2, ft_strnstr(dst1, dst1, 4));
-	printf("\n");
-
-
-	printf("atoi:\n");
-	strcpy(dst1, src1);
-	printf("num is:\"%d\", str is:\"%s\", expected output is:\"%d\"\n", 42, dst1, atoi("   -42"));
-	printf("num is:\"%d\", str is:\"%s\", ft output is:\"%d\"\n", 42, dst1, ft_atoi("   -42"));
-	printf("\n");
-
-
-	printf("calloc:\n");
-	ptr1 = calloc(15, sizeof(int));
-	ptr2 = ft_calloc(15, sizeof(int));
-	printf("comparing mem between \"%s\" and \"%s\", output is:\"%d\"\n", "calloc", "ft_calloc", ft_memcmp(ptr1, ptr2, 15));
-	printf("\n");
-
-
-	printf("strdup:\n");
-	strcpy(dst1, src1);
-	printf("str is:\"%s\", expected output is:\"%s\"\n", dst1, strdup(dst1));
-	strcpy(dst1, src1);
-	printf("str is:\"%s\", ft output is:\"%s\"\n", dst1, ft_strdup(dst1));
-	printf("\n");
-
-	return(0);
+	test_char_functions();
+	test_string_functions();
+	test_conversion_allocation();
+	test_bonus_linked_list();
+	return (0);
 }

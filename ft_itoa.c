@@ -6,7 +6,7 @@
 /*   By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 12:19:39 by mqueiros          #+#    #+#             */
-/*   Updated: 2025/04/14 17:31:06 by mqueiros         ###   ########.fr       */
+/*   Updated: 2025/04/16 11:18:57 by mqueiros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,3 @@ char	*ft_itoa(int n)
 		return (NULL);
 	return (ft_putnbr(dst, n, n_len));
 }
-/* #include <stdio.h>
-int	main()
-{
-	char *d;
-	d = ft_itoa(55);
-	printf("%s\n", d);
-	free (d);
-	return (0);
-} */
