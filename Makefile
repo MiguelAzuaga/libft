@@ -6,10 +6,9 @@
 #    By: mqueiros <mqueiros@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 15:42:21 by mqueiros          #+#    #+#              #
-#    Updated: 2025/04/15 17:36:33 by mqueiros         ###   ########.fr        #
+#    Updated: 2025/04/16 11:14:45 by mqueiros         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
@@ -43,8 +42,6 @@ fclean: clean
 
 re: fclean all
 
-so:
-		$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(BONUS_SRCS)
-		$(CC) -nostartfiles -shared -o libft.so $(OBJS) $(BONUS_OBJS)
-
-.SILENT:
+test: libft.a
+	cc main.c -L. -lft -I. -o tester
+	./tester
